@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Career Assessment Tool</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f0f2f5;
+        }
+        .question-container {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .hidden {
+            display: none;
+        }
+        button {
+            background: #1a73e8;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #1557b0;
+        }
+        .result {
+            background: #e8f0fe;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Career Assessment Tool</h1>
+    
+    <div id="intro">
+        <p>Welcome! This tool will help you discover potential career paths based on your interests and skills.</p>
+        <button onclick="startAssessment()">Start Assessment</button>
+    </div>
+
+    <div id="assessment" class="hidden">
+        <div id="question-1" class="question-container">
+            <h3>What subjects do you enjoy the most?</h3>
+            <input type="checkbox" id="math" name="subjects" value="math">
+            <label for="math">Mathematics</label><br>
+            <input type="checkbox" id="science" name="subjects" value="science">
+            <label for="science">Science</label><br>
+            <input type="checkbox" id="arts" name="subjects" value="arts">
+            <label for="arts">Arts</label><br>
+            <button onclick="nextQuestion(1)">Next</button>
+        </div>
+
+        <div id="question-2" class="question-container hidden">
+            <h3>How do you prefer to work?</h3>
+            <input type="radio" id="team" name="workstyle" value="team">
+            <label for="team">In a team</label><br>
+            <input type="radio" id="solo" name="workstyle" value="solo">
+            <label for="solo">Independently</label><br>
+            <button onclick="nextQuestion(2)">Next</button>
+        </div>
+
+        <div id="question-3" class="question-container hidden">
+            <h3>What kind of activities interest you?</h3>
+            <input type="checkbox" id="tech" name="interests" value="tech">
+            <label for="tech">Working with computers</label><br>
+            <input type="checkbox" id="creative" name="interests" value="creative">
+            <label for="creative">Creative work</label><br>
+            <input type="checkbox" id="analytical" name="interests" value="analytical">
+            <label for="analytical">Solving problems</label><br>
+            <button onclick="showResults()">See Results</button>
+        </div>
+    </div>
+
+    <div id="results" class="hidden">
+        <div class="result">
+            <h2>Your Recommended Career Paths</h2>
+            <div id="career-matches"></div>
+        </div>
+        <button onclick="startOver()">Start Over</button>
+    </div>
+
+    <script>
+        function startAssessment() {
+            document.getElementById('intro').classList.add('hidden');
+            document.getElementById('assessment').classList.remove('hidden');
+        }
+
+        function nextQuestion(current) {
+            document.getElementById('question-' + current).classList.add('hidden');
+            document.getElementById('question-' + (current + 1)).classList.remove('hidden');
+        }
+
+        function showResults() {
+            document.getElementById('assessment').classList.add('hidden');
+            document.getElementById('results').classList.remove('hidden');
+            
+            // Simple career matching logic (you can expand this)
+            let careers = [];
+            if (document.getElementById('math').checked) {
+                careers.push('Engineering', 'Data Science');
+            }
+            if (document.getElementById('science').checked) {
+                careers.push('Research Scientist', 'Medical Professional');
+            }
+            if (document.getElementById('arts').checked) {
+                careers.push('Graphic Designer', 'Content Creator');
+            }
+            
+            document.getElementById('career-matches').innerHTML = 
+                '<p>Based on your responses, here are some careers to consider:</p>' +
+                '<ul>' + careers.map(career => '<li>' + career + '</li>').join('') + '</ul>';
+        }
+
+        function startOver() {
+            document.getElementById('results').classList.add('hidden');
+            document.getElementById('intro').classList.remove('hidden');
+            // Reset form
+            document.querySelectorAll('input').forEach(input => input.checked = false);
+        }
+    </script>
+</body>
+</html>
