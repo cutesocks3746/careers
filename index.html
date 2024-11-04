@@ -161,6 +161,23 @@
             margin: 5px;
             font-size: 0.9em;
         }
+        /* Mobile Styles */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+    h1 {
+        font-size: 1.8em;
+    }
+    button {
+        font-size: 1em;
+        padding: 10px 20px;
+    }
+    .question-container, .result-card {
+        padding: 20px;
+    }
+}
+
     </style>
 </head>
 <body>
@@ -168,7 +185,8 @@
         <div id="intro" class="animate__animated animate__fadeIn">
             <h1>🌟 Discover Your Future Superpower! 🚀</h1>
             <div class="question-container">
-                <p style="font-size: 1.2em; text-align: center;">Ready to explore amazing careers that match YOUR unique talents? Let's go on an adventure together! 🎮✨</p>
+                <p style="font-size: 1.2em; text-align: center;">Enter your first name to begin:</p>
+                <input type="text" id="firstName" placeholder="Your first name" style="width: 100%; padding: 10px; font-size: 1.2em; margin-top: 10px; border-radius: 10px; border: 1px solid #ddd;">
                 <button id="startButton">Start Your Journey! 🚀</button>
             </div>
         </div>
