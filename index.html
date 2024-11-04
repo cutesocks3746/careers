@@ -250,16 +250,12 @@
                 <h2 style="text-align: center;">🎉 Your Amazing Career Matches! 🎉</h2>
                 <div id="career-matches"></div>
                 <div id="personality-profile"></div>
-                <button onclick="startOver()">Try Another Adventure! 🔄</button>
+                <button onclick="resetAssessment()">Try Another Adventure! 🔄</button>
             </div>
         </div>
     </div>
 
     <script>
-Here is the `<script>` segment with all of the original code integrated:
-
-```html
-<script>
     // Career database with scores for different attributes
     const careerDatabase = {
         'Software Developer': { skills: { math: 8, tech: 9, creative: 6 }, interests: { building: 8, science: 6 }, personality: { curious: 7, organized: 6 } },
@@ -398,6 +394,10 @@ Here is the `<script>` segment with all of the original code integrated:
         .confetti { position: fixed; width: 10px; height: 10px; background: #f00; animation: fall 5s linear forwards; }
         @keyframes fall { to { transform: translateY(100vh) rotate(360deg); } }
         @media (max-width: 600px) { .container { padding: 10px; } .question-container { padding: 20px; } .career-match { flex-direction: column; text-align: center; gap: 10px; } }
+        // Create a style element and append it to the document head
+const styleSheet = document.createElement('style');
+styleSheet.textContent = styles;
+document.head.appendChild(styleSheet);
        </script>
 </body>
 </html>
