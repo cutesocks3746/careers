@@ -380,24 +380,27 @@
         'Chartered Accountant': { skills: { math: 9, organized: 8 }, interests: { building: 6 }, personality: { organized: 9, leader: 6 } }
     });
 
-    const styles = `
-        .hidden { display: none !important; }
-        .container { max-width: 800px; margin: 0 auto; padding: 20px; font-family: 'Arial', sans-serif; }
-        .question-container { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); margin: 20px 0; text-align: center; }
-        .option-card { background: #f8f9fa; padding: 15px; margin: 10px 0; border-radius: 10px; cursor: pointer; transition: transform 0.2s; border: 2px solid transparent; }
-        .option-card:hover { transform: translateY(-2px); border-color: #007bff; }
-        .progress-bar { background: #eee; height: 10px; border-radius: 5px; margin: 20px 0; }
-        .progress { background: #007bff; height: 100%; border-radius: 5px; transition: width 0.3s ease; }
-        .career-match { background: white; padding: 15px; margin: 10px 0; border-radius: 10px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); }
-        .match-score { background: #28a745; color: white; padding: 5px 10px; border-radius: 20px; font-size: 0.9em; }
-        .personality-trait { display: inline-block; background: #f8f9fa; padding: 8px 15px; margin: 5px; border-radius: 20px; font-size: 0.9em; }
-        .confetti { position: fixed; width: 10px; height: 10px; background: #f00; animation: fall 5s linear forwards; }
-        @keyframes fall { to { transform: translateY(100vh) rotate(360deg); } }
-        @media (max-width: 600px) { .container { padding: 10px; } .question-container { padding: 20px; } .career-match { flex-direction: column; text-align: center; gap: 10px; } }
-        // Create a style element and append it to the document head
+const styles = `
+    .hidden { display: none !important; }
+    .container { max-width: 800px; margin: 0 auto; padding: 20px; font-family: 'Arial', sans-serif; }
+    .question-container { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); margin: 20px 0; text-align: center; }
+    .option-card { background: #f8f9fa; padding: 15px; margin: 10px 0; border-radius: 10px; cursor: pointer; transition: transform 0.2s; border: 2px solid transparent; }
+    .option-card:hover { transform: translateY(-2px); border-color: #007bff; }
+    .progress-bar { background: #eee; height: 10px; border-radius: 5px; margin: 20px 0; }
+    .progress { background: #007bff; height: 100%; border-radius: 5px; transition: width 0.3s ease; }
+    .career-match { background: white; padding: 15px; margin: 10px 0; border-radius: 10px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); }
+    .match-score { background: #28a745; color: white; padding: 5px 10px; border-radius: 20px; font-size: 0.9em; }
+    .personality-trait { display: inline-block; background: #f8f9fa; padding: 8px 15px; margin: 5px; border-radius: 20px; font-size: 0.9em; }
+    .confetti { position: fixed; width: 10px; height: 10px; background: #f00; animation: fall 5s linear forwards; }
+    @keyframes fall { to { transform: translateY(100vh) rotate(360deg); } }
+    @media (max-width: 600px) { .container { padding: 10px; } .question-container { padding: 20px; } .career-match { flex-direction: column; text-align: center; gap: 10px; } }
+`;
+
+// Create a style element and append it to the document head
 const styleSheet = document.createElement('style');
 styleSheet.textContent = styles;
 document.head.appendChild(styleSheet);
-       </script>
+</script>
 </body>
 </html>
+
