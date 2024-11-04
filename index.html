@@ -398,8 +398,177 @@
             const emojiMap = {
                 'curious': '🔍',
                 'leader': '👑',
-            };
-            return emojiMap[trait] || '✨';
-        }
+                'creative': '🎨',
+                'organized': '📋'
+  };
+  return emojiMap[trait] || '✨';
+}
 
+function resetAssessment() {
+  // Reset all selections
+  document.querySelectorAll('input[type="radio"]').forEach(input => {
+    input.checked = false;
+  });
+  
+  // Hide results and show intro
+  document.getElementById('results').classList.add('hidden');
+  document.getElementById('intro').classList.remove('hidden');
+  
+  // Reset progress bar
+  document.getElementById('progress').style.width = '0%';
+  
+  // Reset all questions to initial state
+  for (let i = 1; i <= 3; i++) {
+    const question = document.getElementById(`question-${i}`);
+    if (i === 1) {
+      question.classList.remove('hidden');
+    } else {
+      question.classList.add('hidden');
+    }
+  }
+}
 
+// Add more Indian careers
+Object.assign(careerDatabase, {
+  'Data Scientist': {
+    skills: { math: 9, tech: 8 },
+    interests: { science: 8, building: 7 },
+    personality: { curious: 8, organized: 7 }
+  },
+  'Digital Marketing': {
+    skills: { creative: 8, social: 7, tech: 6 },
+    interests: { building: 7, helping: 6 },
+    personality: { creative: 8, leader: 7 }
+  },
+  'Biotechnologist': {
+    skills: { math: 7, tech: 6 },
+    interests: { science: 9, nature: 7 },
+    personality: { curious: 9, organized: 7 }
+  },
+  'UI/UX Designer': {
+    skills: { creative: 9, tech: 7 },
+    interests: { building: 8, helping: 6 },
+    personality: { creative: 9, organized: 7 }
+  },
+  'Chartered Accountant': {
+    skills: { math: 9, organized: 8 },
+    interests: { building: 6 },
+    personality: { organized: 9, leader: 6 }
+  }
+});
+
+// Add CSS styles
+const styles = `
+  .hidden {
+    display: none !important;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .question-container {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+    text-align: center;
+  }
+  
+  .option-card {
+    background: #f8f9fa;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    border: 2px solid transparent;
+  }
+  
+  .option-card:hover {
+    transform: translateY(-2px);
+    border-color: #007bff;
+  }
+  
+  .progress-bar {
+    background: #eee;
+    height: 10px;
+    border-radius: 5px;
+    margin: 20px 0;
+  }
+  
+  .progress {
+    background: #007bff;
+    height: 100%;
+    border-radius: 5px;
+    transition: width 0.3s ease;
+  }
+  
+  .career-match {
+    background: white;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .match-score {
+    background: #28a745;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.9em;
+  }
+  
+  .personality-trait {
+    display: inline-block;
+    background: #f8f9fa;
+    padding: 8px 15px;
+    margin: 5px;
+    border-radius: 20px;
+    font-size: 0.9em;
+  }
+  
+  .confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background: #f00;
+    animation: fall 5s linear forwards;
+  }
+  
+  @keyframes fall {
+    to {
+      transform: translateY(100vh) rotate(360deg);
+    }
+  }
+  
+  /* Mobile Responsive Styles */
+  @media (max-width: 600px) {
+    .container {
+      padding: 10px;
+    }
+    
+    .question-container {
+      padding: 20px;
+    }
+    
+    .career-match {
+      flex-direction: column;
+      text-align: center;
+      gap: 10px;
+    }
+  }
+`;
+
+// Add styles to document
+const styleSheet = document.createElement('style');
+styleSheet.textContent = styles;
+document.head.appendChild(styleSheet);
