@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>🌟 What's Your Future Superpower? 🚀</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap');
+        
+        body {
+            font-family: 'Fredoka', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #FFE5F4, #E0F4FF, #E7FFE0);
+            min-height: 100vh;
+            color: #2D3748;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #6B46C1;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .question-container {
+            background: white;
+            padding: 30px;
+            margin-bottom: 20px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(107, 70, 193, 0.1);
+            transform: translateY(0);
+            transition: all 0.3s ease;
+        }
+
+        .question-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(107, 70, 193, 0.2);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        button {
+            background: linear-gradient(45deg, #6B46C1, #805AD5);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Fredoka', sans-serif;
+            margin: 20px auto;
+            display: block;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(107, 70, 193, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="intro" class="animate__animated animate__fadeIn">
+            <h1>🌟 Discover Your Future Superpower! 🚀</h1>
+            <div class="question-container">
+                <p style="font-size: 1.2em; text-align: center;">Ready to explore amazing careers that match YOUR unique talents? Let's go on an adventure together! 🎮✨</p>
+                <button id="startButton">Start Your Journey! 🚀</button>
+            </div>
+        </div>
+
+        <div id="assessment" class="hidden">
+            <!-- Assessment content goes here -->
+        </div>
+    </div>
+
+    <script>
+        // Function to start the assessment by hiding the intro and showing the assessment section
+        function startAssessment() {
+            document.getElementById('intro').classList.add('hidden');
+            document.getElementById('assessment').classList.remove('hidden');
+        }
+
+        // Attach event listener to the "Start Your Journey" button
+        document.getElementById('startButton').addEventListener('click', startAssessment);
+    </script>
+</body>
+</html>
