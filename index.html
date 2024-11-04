@@ -256,6 +256,7 @@
     </div>
 
     <script>
+<script>
     // Career database with scores for different attributes
     const careerDatabase = {
         'Software Developer': { skills: { math: 8, tech: 9, creative: 6 }, interests: { building: 8, science: 6 }, personality: { curious: 7, organized: 6 } },
@@ -270,6 +271,9 @@
         document.getElementById('assessment').classList.remove('hidden');
         updateProgress(0);
     }
+
+    // Add event listener for the Start Button
+    document.getElementById('startButton').addEventListener('click', startAssessment);
 
     function updateProgress(step) {
         const progress = ((step + 1) / 3) * 100;
